@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 30px;
+            background-color: white;
+        }
+
+        form {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 6px;
+            padding: 8px;
+        }
+
+        legend {
+            padding: 0 5px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        label {
+            width: 125px;
+            padding-top: 4px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 145px;
+            height: 20px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        select {
+            padding: 4px;
+            min-width: 88px;
+        }
+
+        .options {
+            padding-top: 3px;
+        }
+
+        .options label {
+            width: auto;
+            padding: 0;
+            margin-right: 3px;
+        }
+
+        .submit-row {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: 1px solid darkblue;
+            border-radius: 5px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+<form action="/submit-item" method="POST">
+
+    <fieldset>
+        <legend>General Info</legend>
+
+        <div class="form-row">
+            <label for="itemName">Item Name</label>
+            <input type="text" id="itemName"
+                   name="itemName"
+                   value="" required>
+        </div>
+
+        <div class="form-row">
+            <label for="itemDescription">Description</label>
+            <textarea id="itemDescription"
+                      name="itemDescription"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="notSpecified">notSpecified</option>
+                <option value="consumption">consumption</option>
+                <option value="household">household</option>
+                <option value="electronic" selected>electronic</option>
+                <option value="gadget">gadget</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Misc.</legend>
+
+        <div class="form-row">
+            <label for="inventoryAmount">Inventory Amount</label>
+            <input type="number" id="inventoryAmount"
+                   name="inventoryAmount" value="">
+        </div>
+
+        <div class="form-row">
+            <label for="listPrice">List price</label>
+            <input type="number" id="listPrice"
+                   name="listPrice" value="">
+        </div>
+
+        <div class="form-row">
+            <label>Available Stores</label>
+            <div class="options">
+                <label>
+                    <input type="checkbox" name="availableStore[]"
+                           value="Bangkok" checked>Bangkok
+                </label>
+                <label>
+                    <input type="checkbox" name="availableStore[]"
+                           value="Pattaya">Pattaya
+                </label>
+                <label>
+                    <input type="checkbox" name="availableStore[]"
+                           value="Phuket" checked>Phuket
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Available Stores</label>
+            <div class="options">
+                <label>
+                    <input type="radio" name="status"
+                           value="Active" checked>Active
+                </label>
+                <label>
+                    <input type="radio" name="status"
+                           value="Inactive">Inactive
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Staff</legend>
+
+        <div class="form-row">
+            <label for="staffEmail">Staff Email</label>
+            <input type="email" id="staffEmail"
+                   name="staffEmail"
+                   value="" required>
+        </div>
+    </fieldset>
+
+    <div class="submit-row">
+        <button type="submit">Submit Form</button>
+    </div>
+
+</form>
+
+</body>
+</html>
